@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
-// import { Link } from 'react-router-dom'
+import { Route, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { fetchPage } from '../actions/index'
 
-import Moment from 'react-moment'
+import Announcements from './announcements'
+import People from './people'
+import Projects from './projects'
+import Publications from './publications'
 
 class Page extends Component {
   constructor (props) {
@@ -37,11 +40,22 @@ class Page extends Component {
         </div>
 
         <div className="subheader-content has-text-centered">
-          <h4 className="subtitle is-4"><i>Violets are red, purples are blue</i></h4>
+          <h4 className="subtitle is-4"><i>{this.props.page.description}</i></h4>
           <hr/>
         </div>
 
         <div className="single-content" dangerouslySetInnerHTML={{__html: this.props.page.content}}></div>
+        <Route exact path="/" render={() => (
+          <div>
+            <Announcements />
+            <People />
+            <Publications />
+            <Projects />
+          </div> )}/>
+        <Route exact path="/announcements" component={Announcements}/>
+        <Route exact path="/publications" component={Publications}/>
+        <Route exact path="/research" component={Projects}/>
+        <Route exact path="/people" component={People}/>
       </div>
     )
   }

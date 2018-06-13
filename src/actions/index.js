@@ -24,3 +24,11 @@ export function fetchNavLinks () {
     payload: request
   }
 }
+
+export function fetchAnnouncements () {
+  const request = axios.get(`${BASE_URL}/content/?keys=announcements&auth_token=${API_KEY}`)
+  return {
+    type: FETCH_ANNOUNCEMENTS,
+    payload: request
+  }
+}
