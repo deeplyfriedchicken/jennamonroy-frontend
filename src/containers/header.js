@@ -24,17 +24,15 @@ class Header extends Component {
       <div className="hero-head">
         <header>
           <div className="container">
-            <div className="section">
-              <div className="has-text-centered">
-                <h1 className="title is-1 is-spaced">Logo Goes Here</h1>
+            <div className="has-text-centered">
+              <div className="is-flex is-horizontal-center">
+                <img className="image logo" src={require('../logo.png')} />
               </div>
             </div>
-            <div className="section">
-              <div className="tabs is-centered">
-                <ul>
-                  {this.renderLinks()}
-                </ul>
-              </div>
+            <div className="tabs is-centered">
+              <ul>
+                {this.renderLinks()}
+              </ul>
             </div>
           </div>
         </header>

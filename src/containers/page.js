@@ -15,7 +15,12 @@ class Page extends Component {
   }
 
   componentDidMount () {
-    this.props.fetchPage('home')
+    console.log(this.props)
+    if (this.props.slug) {
+      this.props.fetchPage(this.props.slug)
+    } else {
+      this.props.fetchPage('home')
+    }
     window.scrollTo(0, 0)
   }
 
