@@ -18,15 +18,34 @@ class Page extends Component {
   }
 
   componentDidMount () {
-    if (this.props.slug) {
-      this.props.fetchPage(this.props.slug)
-    } else {
-      this.props.fetchPage('home')
-    }
+    setTimeout(() => {
+      if (this.props.slug) {
+        this.fetchPage(this.props.slug)
+      } else {
+        this.fetchPage('home')
+      }
+    }, 500)
     window.scrollTo(0, 0)
   }
 
+  fetchPage (page) {
+    this.props.fetchPage(page).then(() => {
+      this.setState({ isLoading: false })
+    })
+  }
+
+  renderLoading (loading) {
+    if (loading) {
+      return (
+        <div className="has-text-centered loading"><i className="fa-spin fas fa-compass"></i></div>
+      )
+    }
+  }
+
   render () {
+    if (this.state.isLoading) {
+      return this.renderLoading(this.state.isLoading)
+    }
     return (
       <div>
         <div className="header-content">
