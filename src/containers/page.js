@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
-// import { Link } from 'react-router-dom'
+import { Route, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { fetchPage } from '../actions/index'
 
-import Moment from 'react-moment'
+import Announcements from './announcements'
+import People from './people'
+import Projects from './projects'
+import Publications from './publications'
 
 class Page extends Component {
   constructor (props) {
@@ -15,12 +18,34 @@ class Page extends Component {
   }
 
   componentDidMount () {
-    this.props.fetchPage('home')
+    setTimeout(() => {
+      if (this.props.slug) {
+        this.fetchPage(this.props.slug)
+      } else {
+        this.fetchPage('home')
+      }
+    }, 500)
     window.scrollTo(0, 0)
   }
 
+  fetchPage (page) {
+    this.props.fetchPage(page).then(() => {
+      this.setState({ isLoading: false })
+    })
+  }
+
+  renderLoading (loading) {
+    if (loading) {
+      return (
+        <div className="has-text-centered loading"><i className="fa-spin fas fa-compass"></i></div>
+      )
+    }
+  }
+
   render () {
-    console.log(this.props)
+    if (this.state.isLoading) {
+      return this.renderLoading(this.state.isLoading)
+    }
     return (
       <div>
         <div className="header-content">
@@ -32,11 +57,22 @@ class Page extends Component {
         </div>
 
         <div className="subheader-content has-text-centered">
-          <h4 className="subtitle is-4"><i>Violets are red, purples are blue</i></h4>
+          <h4 className="subtitle is-4"><i>{this.props.page.description}</i></h4>
           <hr/>
         </div>
 
         <div className="single-content" dangerouslySetInnerHTML={{__html: this.props.page.content}}></div>
+        <Route exact path="/" render={() => (
+          <div>
+            <Announcements />
+            <Publications />
+            <People />
+            <Projects />
+          </div> )}/>
+        <Route exact path="/announcements" component={Announcements}/>
+        <Route exact path="/publications" component={Publications}/>
+        <Route exact path="/research" component={Projects}/>
+        <Route exact path="/people" component={People}/>
       </div>
     )
   }

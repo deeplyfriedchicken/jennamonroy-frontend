@@ -1,17 +1,22 @@
 import React, { Component } from 'react'
 
+import '../styles/footer.css'
+
 class Footer extends Component {
   render () {
     return (
       <div className="hero-foot footer-custom">
         <div className="container has-text-centered">
           <hr/>
-          <a className="nav-item" href="http://github.com/plasticneko">
-            <span className="icon">
-              <i className="fab fa-github"></i>
-            </span>
-          </a>
-          <p>engineered by <a href="https://github.com/kcunanan/kenny-blog">kcunanan</a></p>
+          <div>
+            <a href="https://buttercms.com/" target="_blank">
+              <img className="buttercms" src="https://cdn.buttercms.com/PGJPyIwaQ2KnOA8UyKfH" />
+            </a>
+          </div>
+          <span className="icon">
+            <i className="fab fa-github"></i>
+          </span>
+          <p>engineered by <a href="https://github.com/kcunanan/jennamonroy.com">kcunanan</a></p>
         </div>
       </div>
     )
