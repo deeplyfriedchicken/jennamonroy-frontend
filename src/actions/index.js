@@ -32,3 +32,27 @@ export function fetchAnnouncements () {
     payload: request
   }
 }
+
+export function fetchPeople () {
+  const request = axios.get(`${BASE_URL}/content/?keys=people&auth_token=${API_KEY}`)
+  return {
+    type: FETCH_PEOPLE,
+    payload: request
+  }
+}
+
+export function fetchProjects () {
+  const request = axios.get(`${BASE_URL}/content/?keys=projects&auth_token=${API_KEY}`)
+  return {
+    type: FETCH_PROJECTS,
+    payload: request
+  }
+}
+
+export function fetchPublications () {
+  const request = axios.get(`${BASE_URL}/content/?keys=publications&auth_token=${API_KEY}`)
+  return {
+    type: FETCH_PUBLICATIONS,
+    payload: request
+  }
+}

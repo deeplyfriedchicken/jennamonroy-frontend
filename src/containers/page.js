@@ -18,7 +18,6 @@ class Page extends Component {
   }
 
   componentDidMount () {
-    console.log(this.props)
     if (this.props.slug) {
       this.props.fetchPage(this.props.slug)
     } else {
@@ -28,7 +27,6 @@ class Page extends Component {
   }
 
   render () {
-    console.log(this.props)
     return (
       <div>
         <div className="header-content">
@@ -48,8 +46,8 @@ class Page extends Component {
         <Route exact path="/" render={() => (
           <div>
             <Announcements />
-            <People />
             <Publications />
+            <People />
             <Projects />
           </div> )}/>
         <Route exact path="/announcements" component={Announcements}/>

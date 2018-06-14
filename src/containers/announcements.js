@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import { NavLink, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { fetchAnnouncements } from '../actions/index'
+
+import '../styles/announcements.css'
 
 class Announcements extends Component {
   componentDidMount () {
@@ -11,8 +13,8 @@ class Announcements extends Component {
   renderAnnouncements () {
     return this.props.announcements.map(announcement => {
       return (
-        <div key={announcement.title}>
-          <h2 className="subtitle">{announcement.title}</h2>
+        <div className="notification" key={announcement.title}>
+          <h2 className="is-size-5 title">{announcement.title}</h2>
           <div dangerouslySetInnerHTML={{__html: announcement.content}}></div>
         </div>
       )
@@ -21,8 +23,8 @@ class Announcements extends Component {
 
   render () {
     return (
-      <div className="announcements">
-        <h1 className="title">Announcements</h1>
+      <div className="collection">
+        <h1 className="is-size-4 title">Announcements</h1>
         {this.renderAnnouncements()}
       </div>
     )
