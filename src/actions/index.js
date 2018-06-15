@@ -10,7 +10,12 @@ export const FETCH_PUBLICATIONS = 'fetch_publications'
 
 
 export function fetchPage (page = 'home') {
-  const request = axios.get(`${BASE_URL}/pages/*/${page}?auth_token=${API_KEY}`)
+  let requestURL = `${BASE_URL}/pages/*/${page}?auth_token=${API_KEY}`
+  const url = new URL(window.location.href)
+  if (url.search === '?preview=1') {
+    requestURL = `${requestURL}&preview=1`
+  }
+  const request = axios.get(requestURL)
   return {
     type: FETCH_PAGE,
     payload: request

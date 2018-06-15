@@ -9,14 +9,14 @@ class Footer extends Component {
         <div className="container has-text-centered">
           <hr/>
           <div>
-            <a href="https://buttercms.com/" target="_blank">
-              <img className="buttercms" src="https://cdn.buttercms.com/PGJPyIwaQ2KnOA8UyKfH" />
+            <a href="https://buttercms.com/" target="_blank" rel="noopener noreferrer">
+              <img className="buttercms" alt="buttercms attribution logo" src="https://cdn.buttercms.com/PGJPyIwaQ2KnOA8UyKfH" />
             </a>
           </div>
           <span className="icon">
             <i className="fab fa-github"></i>
           </span>
-          <p>engineered by <a href="https://github.com/kcunanan/jennamonroy.com">kcunanan</a></p>
+          <p>engineered by <a href="https://github.com/kcunanan/jennamonroy.com" target="_blank" rel="noopener noreferrer">kcunanan</a></p>
         </div>
       </div>
     )
