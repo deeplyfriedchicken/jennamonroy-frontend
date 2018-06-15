@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { NavLink, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { fetchPeople } from '../actions/index'
 
@@ -15,18 +15,18 @@ class People extends Component {
     return this.props.people.map(person => {
       const name = `${person.first_name} ${person.last_name}`
       return (
-        <div class="card">
-          <div class="card-image">
-            <figure class="image">
-              <img src={person.profile_picture} alt={`Picture of ${name}`} />
+        <div className="card" key={name}>
+          <div className="card-image">
+            <figure className="image">
+              <img src={person.profile_picture} alt={name} />
             </figure>
           </div>
-          <div class="card-content">
-            <div class="media">
-              <div class="media-content">
-                <p class="is-size-5 has-text-weight-bold">{ name }</p>
-                <p class="is-size-6">{ person.college }</p>
-                <p class="is-size-6">{ person.affiliation }</p>
+          <div className="card-content">
+            <div className="media">
+              <div className="media-content">
+                <p className="is-size-5 has-text-weight-bold">{ name }</p>
+                <p className="is-size-6">{ person.college }</p>
+                <p className="is-size-6">{ person.affiliation }</p>
               </div>
             </div>
           </div>
@@ -36,11 +36,15 @@ class People extends Component {
   }
 
   render () {
+    const breakpointColumnsObj = {
+      default: 2,
+      500: 1
+    }
     return (
       <div className="collection">
         <h1 className="is-size-4 title">People</h1>
         <Masonry
-          breakpointCols={2}
+          breakpointCols={breakpointColumnsObj}
           className="my-masonry-grid"
           columnClassName="my-masonry-grid_column">
           {this.renderPeople()}

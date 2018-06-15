@@ -14,16 +14,16 @@ class Projects extends Component {
   renderProjects () {
     return this.props.projects.map(project => {
       return (
-        <div class="card">
-          <div class="card-image">
-            <figure class="image">
-              <img src={project.featured_image} alt={`Picture of ${project.name}`} />
+        <div className="card" key={project.name}>
+          <div className="card-image">
+            <figure className="image">
+              <img src={project.featured_image} alt={project.name} />
             </figure>
           </div>
-          <div class="card-content">
-            <div class="media">
-              <div class="media-content">
-                <p class="is-size-5 has-text-weight-bold">{ project.name }</p>
+          <div className="card-content">
+            <div className="media">
+              <div className="media-content">
+                <p className="is-size-5 has-text-weight-bold">{ project.name }</p>
               </div>
             </div>
           </div>
@@ -33,11 +33,15 @@ class Projects extends Component {
   }
 
   render () {
+    const breakpointColumnsObj = {
+      default: 2,
+      500: 1
+    }
     return (
       <div className="collection">
         <h1 className="is-size-4 title">Projects</h1>
         <Masonry
-          breakpointCols={2}
+          breakpointCols={breakpointColumnsObj}
           className="my-masonry-grid"
           columnClassName="my-masonry-grid_column">
           {this.renderProjects()}
