@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { NavLink, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { fetchNavLinks, fetchStaticContent } from '../actions/index'
+import { Helmet } from 'react-helmet'
 
 class Header extends Component {
   componentDidMount () {
@@ -24,7 +25,10 @@ class Header extends Component {
     if (this.props.logo) {
       return (
         <div>
-          <img className="image logo" alt="Jenna Monroy Logo" src={this.props.logo.image} />
+          <Helmet>
+          <link rel="icon" type="image/png" href={this.props.favicon.image} sizes="32x32" />
+          </Helmet>
+          <img className="image logo" alt="Jenna Monroy - Logo" src={this.props.logo.image} />
           <p className="is-size-3 has-text-weight-bold">{this.props.title.text}</p>
           <p className="is-size-6">{this.props.subtitle.text}</p>
         </div>
@@ -59,7 +63,8 @@ function mapStateToProps (state) {
     navLinks: state.navLinks,
     logo: state.static.logo,
     title: state.static.logo_title_text,
-    subtitle: state.static.logo_subtitle_text
+    subtitle: state.static.logo_subtitle_text,
+    favicon: state.static.favicon
   }
 }
 
