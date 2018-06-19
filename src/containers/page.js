@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { fetchPage } from '../actions/index'
+import { Helmet } from 'react-helmet'
 
 import Announcements from './announcements'
 import People from './people'
@@ -84,6 +85,11 @@ class Page extends Component {
     }
     return (
       <div className="page-container">
+        <Helmet>
+          <title>{this.props.page.tab_title}</title>
+          <meta name="description" content={this.props.page.description} />
+        </Helmet>
+
         {this.renderImage()}
 
         <div className="single-content" dangerouslySetInnerHTML={{__html: this.props.page.content}}></div>

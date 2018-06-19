@@ -55,7 +55,6 @@ class Header extends Component {
 }
 
 function mapStateToProps (state) {
-  console.log(state)
   return {
     navLinks: state.navLinks,
     logo: state.static.logo,
