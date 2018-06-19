@@ -25,7 +25,7 @@ class Header extends Component {
       return (
         <div>
           <img className="image logo" alt="Jenna Monroy Logo" src={this.props.logo.image} />
-          <p className="is-size-2 has-text-weight-bold">{this.props.title.text}</p>
+          <p className="is-size-3 has-text-weight-bold">{this.props.title.text}</p>
           <p className="is-size-6">{this.props.subtitle.text}</p>
         </div>
       )

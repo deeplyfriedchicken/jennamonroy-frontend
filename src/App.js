@@ -16,7 +16,7 @@ class App extends Component {
           <Header />
           <div>
             <div className="container ">
-              <div className="columns is-multiline is-centered">
+              <div className="columns is-mobile is-multiline is-centered">
                 <div className="column is-10 is-centered">
                   <Route exact path="/" component={Page} />
                   <Route exact path="/home" component={Page} />
