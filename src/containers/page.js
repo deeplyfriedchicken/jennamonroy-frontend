@@ -46,10 +46,10 @@ class Page extends Component {
       return (
         <section className="hero is-info is-medium is-bold" style={{backgroundImage: `url(${this.props.page.featured_image})` }}>
           <div className="hero-body">
-          <div class="has-text-centered">
-            <h1 class="title">{this.props.page.title}</h1>
+          <div className="has-text-centered">
+            <h1 className="title">{this.props.page.title}</h1>
             <div>
-              <h2 class="subtitle">{this.props.page.description}</h2>
+              <h2 className="subtitle">{this.props.page.description}</h2>
             </div>
           </div>
           </div>
