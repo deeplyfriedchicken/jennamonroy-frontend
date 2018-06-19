@@ -14,7 +14,7 @@ class App extends Component {
       <div className="App">
         <div>
           <Header />
-          <div className="hero-body">
+          <div>
             <div className="container ">
               <div className="columns is-multiline is-centered">
                 <div className="column is-10 is-centered">
