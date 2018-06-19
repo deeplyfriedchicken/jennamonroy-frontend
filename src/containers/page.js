@@ -25,7 +25,6 @@ class Page extends Component {
         this.fetchPage('home')
       }
     }, 500)
-    window.scrollTo(0, 0)
   }
 
   fetchPage (page) {
@@ -41,25 +40,51 @@ class Page extends Component {
       )
     }
   }
+  renderImage () {
+    if (this.props.page.featured_image) {
+      return (
+        <section className="hero is-info is-medium is-bold" style={{backgroundImage: `url(${this.props.page.featured_image})` }}>
+          <div className="hero-body">
+          <div class="has-text-centered">
+            <h1 class="title">{this.props.page.title}</h1>
+            <div>
+              <h2 class="subtitle">{this.props.page.description}</h2>
+            </div>
+          </div>
+          </div>
+        </section>
+      )
+    } else {
+      return (
+        <div>
+          <div className="header-content">
+            <div className="has-text-centered">
+              <h1 className="title is-spaced">
+                {this.props.page.title}
+              </h1>
+            </div>
+          </div>
+
+          <div className="subheader-content has-text-centered">
+            <h4 className="subtitle is-4"><i>{this.props.page.description}</i></h4>
+            <hr/>
+          </div>
+        </div>
+      )
+    }
+  }
 
   render () {
     if (this.state.isLoading) {
-      return this.renderLoading(this.state.isLoading)
+      return (
+        <div className="page-container">
+          {this.renderLoading(this.state.isLoading)}
+        </div>
+      )
     }
     return (
-      <div>
-        <div className="header-content">
-          <div className="has-text-centered">
-            <h1 className="title is-spaced">
-              {this.props.page.title}
-            </h1>
-          </div>
-        </div>
-
-        <div className="subheader-content has-text-centered">
-          <h4 className="subtitle is-4"><i>{this.props.page.description}</i></h4>
-          <hr/>
-        </div>
+      <div className="page-container">
+        {this.renderImage()}
 
         <div className="single-content" dangerouslySetInnerHTML={{__html: this.props.page.content}}></div>
         <Route exact path="/" render={() => (
