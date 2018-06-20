@@ -93,6 +93,7 @@ class Home extends Component {
         </div>
       )
     }
+    const home = this.props.home
     const settings = {
       dots: true,
       infinite: true,
@@ -104,8 +105,8 @@ class Home extends Component {
     return (
       <div className="page-container">
         <Helmet>
-          <title>{this.props.home.tab_title}</title>
-          <meta name="description" content={this.props.home.description} />
+          <title>{home.tab_title}</title>
+          <meta name="description" content={home.description} />
         </Helmet>
 
         <Slider {...settings}>
@@ -115,10 +116,10 @@ class Home extends Component {
         <div className="single-content" dangerouslySetInnerHTML={{__html: this.props.home.content}}></div>
         <Route exact path="/" render={() => (
           <div>
-            <Announcements />
-            <Publications />
-            <People />
-            <Projects />
+            <Announcements limit={home.annoucnement_limit} />
+            <Publications limit={home.publications_limit} />
+            <People limit={home.people_limit} />
+            <Projects limit={home.projects_limit} />
           </div> )}/>
       </div>
     )

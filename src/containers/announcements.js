@@ -11,7 +11,11 @@ class Announcements extends Component {
   }
 
   renderAnnouncements () {
-    return this.props.announcements.map(announcement => {
+    let announcements = this.props.announcements
+    if (this.props.limit) {
+      announcements = announcements.slice(0, this.props.limit)
+    }
+    return announcements.map(announcement => {
       return (
         <div className="notification" key={announcement.title}>
           <h2 className="is-size-5 title">{announcement.title}</h2>

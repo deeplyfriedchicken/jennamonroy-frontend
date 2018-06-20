@@ -11,7 +11,11 @@ class Publications extends Component {
   }
 
   renderPublications () {
-    return this.props.publications.map((publication, i) => {
+    let publications = this.props.publications
+    if (this.props.limit) {
+      publications = publications.slice(0, this.props.limit)
+    }
+    return publications.map((publication, i) => {
       return (
         <div key={i} className="publication" dangerouslySetInnerHTML={{__html: publication.citation}}></div>
       )

@@ -11,10 +11,14 @@ class People extends Component {
   }
 
   render () {
+    let people = this.props.people
+    if (this.props.limit) {
+      people = people.slice(0, this.props.limit)
+    }
     return (
       <div className="collection">
         <h1 className="is-size-4 title">People</h1>
-        <PeopleList people={this.props.people} />
+        <PeopleList people={people} />
       </div>
     )
   }
