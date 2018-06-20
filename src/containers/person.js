@@ -3,6 +3,8 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { fetchPerson } from '../actions/index'
 
+import ReactDOM from 'react-dom'
+
 import ProjectList from '../components/project-list'
 
 import '../styles/person.css'
@@ -34,7 +36,7 @@ class Person extends Component {
       const person = this.props.person
       const name = `${person.first_name} ${person.last_name}`
       return (
-        <div id="profile" className="person-container">
+        <div id="profile" ref="profile" className="person-container">
           <div className="person-info has-text-centered">
             <img className="profile-picture" src={person.profile_picture} alt={name} />
             <h1 id="name" className="title name">{name}</h1>
@@ -49,7 +51,7 @@ class Person extends Component {
         </div>
       )
     } else {
-      return <div></div>
+      return <div id="profile" ref="profile" className="person-container"></div>
     }
   }
 }
