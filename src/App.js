@@ -5,6 +5,7 @@ import Header from './containers/header'
 import Footer from './components/footer'
 
 import Page from './containers/page'
+import Person from './containers/person'
 
 import './styles/main.css'
 
@@ -20,7 +21,8 @@ class App extends Component {
                 <div className="column is-10 is-centered">
                   <Route exact path="/" component={Page} />
                   <Route exact path="/home" component={Page} />
-                  <Route path="/:page" render={(props) => (
+                  <Route exact path="/people/:person" component={Person} />
+                  <Route exact path="/:page" render={(props) => (
                     <Page slug={props.match.params.page} key={props.match.params.page} />)} />
                 </div>
               </div>
