@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { fetchPerson } from '../actions/index'
+import { Helmet } from 'react-helmet'
 
 import ProjectList from '../components/project-list'
 
@@ -35,6 +36,9 @@ class Person extends Component {
       const name = `${person.first_name} ${person.last_name}`
       return (
         <div id="profile" ref="profile" className="person-container">
+          <Helmet>
+            <title>{`People | ${name}`}</title>
+          </Helmet>
           <div className="person-info has-text-centered">
             <img className="profile-picture" src={person.profile_picture} alt={name} />
             <h1 id="name" className="title name">{name}</h1>

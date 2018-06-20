@@ -3,6 +3,8 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { fetchProject } from '../actions/index'
 
+import { Helmet } from 'react-helmet'
+
 import '../styles/project.css'
 
 class Project extends Component {
@@ -32,6 +34,10 @@ class Project extends Component {
       const project = this.props.project
       return (
         <div id="project" className="project-container">
+          <Helmet>
+            <title>{`Research | ${project.name}`}</title>
+            <meta name="description" content={project.description} />
+          </Helmet>
           <div className="project-info has-text-centered">
             <img className="featured-image" src={project.featured_image} alt={project.name} />
             <h1 id="name" className="title name">{project.name}</h1>
