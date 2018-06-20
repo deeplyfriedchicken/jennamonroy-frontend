@@ -114,13 +114,10 @@ class Home extends Component {
         </Slider>
 
         <div className="single-content" dangerouslySetInnerHTML={{__html: this.props.home.content}}></div>
-        <Route exact path="/" render={() => (
-          <div>
-            <Announcements limit={home.annoucnement_limit} />
-            <Publications limit={home.publications_limit} />
-            <People limit={home.people_limit} />
-            <Projects limit={home.projects_limit} />
-          </div> )}/>
+        <Announcements limit={home.annoucnement_limit} />
+        <Publications limit={home.publications_limit} />
+        <People limit={home.people_limit} />
+        <Projects limit={home.projects_limit} />
       </div>
     )
   }

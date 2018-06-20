@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import './App.css'
 import Header from './containers/header'
 import Footer from './components/footer'
@@ -21,12 +21,14 @@ class App extends Component {
             <div className="container ">
               <div className="columns is-mobile is-multiline is-centered">
                 <div className="column is-10 is-centered">
-                  <Route exact path="/" component={Home} />
-                  <Route exact path="/home" component={Home} />
-                  <Route exact path="/people/:person" component={Person} />
-                  <Route exact path="/research/:project" component={Project} />
-                  <Route exact path="/:page" render={(props) => (
-                    <Page slug={props.match.params.page} key={props.match.params.page} />)} />
+                  <Switch>
+                    <Route exact path="/" component={Home} />
+                    <Route exact path="/home" component={Home} />
+                    <Route exact path="/people/:person" component={Person} />
+                    <Route exact path="/research/:project" component={Project} />
+                    <Route exact path="/:page" render={(props) => (
+                      <Page slug={props.match.params.page} key={props.match.params.page} />)} />
+                  </Switch>
                 </div>
               </div>
             </div>
