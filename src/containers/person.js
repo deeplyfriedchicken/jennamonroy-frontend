@@ -31,16 +31,13 @@ class Person extends Component {
 
   render () {
     if (this.props.person.projects) {
-      const breakpointColumnsObj = {
-        default: 2,
-        500: 1
-      }
       const person = this.props.person
+      const name = `${person.first_name} ${person.last_name}`
       return (
         <div id="profile" className="person-container">
           <div className="person-info has-text-centered">
-            <img className="profile-picture" src={person.profile_picture} />
-            <h1 id="name" className="title name">{`${person.first_name} ${person.last_name}`}</h1>
+            <img className="profile-picture" src={person.profile_picture} alt={name} />
+            <h1 id="name" className="title name">{name}</h1>
             <p>{person.affiliation}</p>
             <p>{`${person.college} ${person.graduation_year}`}</p>
           </div>
