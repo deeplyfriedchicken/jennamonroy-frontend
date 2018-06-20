@@ -12,11 +12,11 @@ class Header extends Component {
 
   renderLinks () {
     return this.props.navLinks.map(link => {
-      switch(link.url) {
-        case('/'):
+      switch(link.name) {
+        case('Home'):
           return <li key={link.url}><NavLink exact activeClassName="is-active" to={`${link.url}`}>{link.name}</NavLink></li>
         default:
-          return <li key={link.url}><NavLink activeClassName="is-active" exact to={`${link.url}`}>{link.name}</NavLink></li>
+          return <li key={link.url}><NavLink activeClassName="is-active" to={`${link.url}`}>{link.name}</NavLink></li>
       }
     })
   }

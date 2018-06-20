@@ -9,6 +9,7 @@ import ProjectsReducer from './reducer_projects'
 import PublicationsReducer from './reducer_publications'
 
 import PersonReducer from './reducer_person'
+import ProjectReducer from './reducer_project'
 
 const rootReducer = combineReducers({
   page: PageReducer,
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
   projects: ProjectsReducer,
   publications: PublicationsReducer,
   static: StaticContentReducer,
-  person: PersonReducer
+  person: PersonReducer,
+  project: ProjectReducer,
 })
 
 export default rootReducer

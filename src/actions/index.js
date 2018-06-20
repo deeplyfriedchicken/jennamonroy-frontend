@@ -9,6 +9,7 @@ export const FETCH_PEOPLE = 'fetch_people'
 export const FETCH_PUBLICATIONS = 'fetch_publications'
 export const FETCH_STATIC_CONTENT = 'fetch_static_content'
 export const FETCH_PERSON = 'fetch_person'
+export const FETCH_PROJECT = 'fetch_project'
 
 
 export function fetchPage (page = 'home') {
@@ -76,6 +77,14 @@ export function fetchPerson (slug) {
   const request = axios.get(`${BASE_URL}/content/?keys=people[slug=${slug}]&auth_token=${API_KEY}`)
   return {
     type: FETCH_PERSON,
+    payload: request
+  }
+}
+
+export function fetchProject (slug) {
+  const request = axios.get(`${BASE_URL}/content/?keys=projects[slug=${slug}]&auth_token=${API_KEY}`)
+  return {
+    type: FETCH_PROJECT,
     payload: request
   }
 }

@@ -6,6 +6,7 @@ import Footer from './components/footer'
 
 import Page from './containers/page'
 import Person from './containers/person'
+import Project from './containers/project'
 
 import './styles/main.css'
 
@@ -22,6 +23,7 @@ class App extends Component {
                   <Route exact path="/" component={Page} />
                   <Route exact path="/home" component={Page} />
                   <Route exact path="/people/:person" component={Person} />
+                  <Route exact path="/research/:project" component={Project} />
                   <Route exact path="/:page" render={(props) => (
                     <Page slug={props.match.params.page} key={props.match.params.page} />)} />
                 </div>
