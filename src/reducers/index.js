@@ -8,6 +8,8 @@ import PeopleReducer from './reducer_people'
 import ProjectsReducer from './reducer_projects'
 import PublicationsReducer from './reducer_publications'
 
+import PersonReducer from './reducer_person'
+
 const rootReducer = combineReducers({
   page: PageReducer,
   navLinks: NavLinksReducer,
@@ -16,6 +18,7 @@ const rootReducer = combineReducers({
   projects: ProjectsReducer,
   publications: PublicationsReducer,
   static: StaticContentReducer,
+  person: PersonReducer
 })
 
 export default rootReducer
