@@ -5,6 +5,7 @@ import Header from './containers/header'
 import Footer from './components/footer'
 
 import Page from './containers/page'
+import Home from './containers/home'
 import Person from './containers/person'
 import Project from './containers/project'
 
@@ -20,8 +21,8 @@ class App extends Component {
             <div className="container ">
               <div className="columns is-mobile is-multiline is-centered">
                 <div className="column is-10 is-centered">
-                  <Route exact path="/" component={Page} />
-                  <Route exact path="/home" component={Page} />
+                  <Route exact path="/" component={Home} />
+                  <Route exact path="/home" component={Home} />
                   <Route exact path="/people/:person" component={Person} />
                   <Route exact path="/research/:project" component={Project} />
                   <Route exact path="/:page" render={(props) => (
