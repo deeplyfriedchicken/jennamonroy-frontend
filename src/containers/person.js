@@ -3,8 +3,6 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { fetchPerson } from '../actions/index'
 
-import ReactDOM from 'react-dom'
-
 import ProjectList from '../components/project-list'
 
 import '../styles/person.css'
