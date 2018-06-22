@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
+import ReactGA from 'react-ga';
+
 import './App.css'
 import Header from './containers/header'
 import Footer from './components/footer'
@@ -10,6 +12,9 @@ import Person from './containers/person'
 import Project from './containers/project'
 
 import './styles/main.css'
+
+ReactGA.initialize('UA-121232781-1');
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 class App extends Component {
   render () {
