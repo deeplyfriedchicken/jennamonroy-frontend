@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { fetchPage } from '../actions/index'
 import { Helmet } from 'react-helmet'
