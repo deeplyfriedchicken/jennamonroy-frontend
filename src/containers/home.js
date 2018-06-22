@@ -4,11 +4,6 @@ import { connect } from 'react-redux'
 import { fetchPage } from '../actions/index'
 import { Helmet } from 'react-helmet'
 
-import Announcements from './announcements'
-import People from './people'
-import Projects from './projects'
-import Publications from './publications'
-
 import Slider from 'react-slick'
 
 import '../styles/slick.css'
@@ -114,10 +109,6 @@ class Home extends Component {
         </Slider>
 
         <div className="single-content" dangerouslySetInnerHTML={{__html: this.props.home.content}}></div>
-        <Announcements limit={home.annoucnement_limit} />
-        <Publications limit={home.publications_limit} />
-        <People limit={home.people_limit} />
-        <Projects limit={home.projects_limit} />
       </div>
     )
   }
