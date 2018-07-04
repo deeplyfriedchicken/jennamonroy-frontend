@@ -4,19 +4,35 @@ import { connect } from 'react-redux'
 import { fetchNavLinks, fetchStaticContent } from '../actions/index'
 import { Helmet } from 'react-helmet'
 
+import '../styles/header.css'
+
 class Header extends Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      isActive: false
+    }
+
+    this.toggleBurger = this.toggleBurger.bind(this);
+  }
+
   componentDidMount () {
     this.props.fetchNavLinks()
     this.props.fetchStaticContent()
+  }
+
+  toggleBurger() {
+    this.setState({ isActive: !this.state.isActive })
   }
 
   renderLinks () {
     return this.props.navLinks.map(link => {
       switch(link.name) {
         case('Home'):
-          return <li key={link.url}><NavLink exact activeClassName="is-active" to={`${link.url}`}>{link.name}</NavLink></li>
+          return <NavLink key={link.url} exact className="navbar-item" activeClassName="is-active" to={`${link.url}`}>{link.name}</NavLink>
         default:
-          return <li key={link.url}><NavLink activeClassName="is-active" to={`${link.url}`}>{link.name}</NavLink></li>
+          return <NavLink key={link.url} className="navbar-item" activeClassName="is-active" to={`${link.url}`}>{link.name}</NavLink>
       }
     })
   }
@@ -46,11 +62,21 @@ class Header extends Component {
                 {this.renderStatic()}
               </div>
             </div>
-            <div className="tabs is-centered">
-              <ul>
-                {this.renderLinks()}
-              </ul>
-            </div>
+            <nav class="navbar is-transparent">
+              <div class="navbar-brand">
+                <div class={`navbar-burger burger ${(this.state.isActive ? ' is-active' : '')}`} onClick={this.toggleBurger}>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+
+              <div class={`navbar-menu ${(this.state.isActive ? ' is-active' : '')}`}>
+                <div id="center-items" class="navbar-start">
+                  {this.renderLinks()}
+                </div>
+              </div>
+            </nav>
           </div>
         </header>
       </div>

@@ -1,0 +1,24 @@
+@import '../mq.sass'
+
++desktop
+    .navbar
+        border-bottom: 1px solid #dbdbdb
+
+.navbar-burger
+    margin-left: auto
+    margin-right: auto
+
+#center-items
+    flex-grow: 1
+    flex-direction: row
+    justify-content: center
+    .is-active
+        color: $primary
+        +desktop
+            border-bottom: 1px solid $primary
+    .navbar-item
+        display: block
+        +desktop
+            &:hover
+                color: $primary
+                border-bottom: 1px solid $primary
