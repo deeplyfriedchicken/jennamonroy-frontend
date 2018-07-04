@@ -6,4 +6,4 @@ COPY . .
 
 RUN npm install
 
-RUN apk update && apk upgrade && \ apk add --no-cache git
+RUN apk update && apk upgrade && apk add --no-cache git
