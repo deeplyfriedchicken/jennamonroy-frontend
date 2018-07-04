@@ -41,6 +41,19 @@ class Page extends Component {
       )
     }
   }
+
+  renderTitle () {
+    if (this.props.page.title !== "") {
+      return <h1 className="title">{this.props.page.title}</h1>
+    }
+  }
+
+  renderSubtitle () {
+    if (this.props.page.description !== "") {
+      return <h2 className="subtitle">{this.props.page.description}</h2>
+    }
+  }
+
   renderImage () {
     if (this.props.page.featured_image) {
       return (
@@ -48,10 +61,10 @@ class Page extends Component {
           <div id="page-hero" className="hero-body">
             <div className="has-text-centered">
               <div>
-                <h1 className="title">{this.props.page.title}</h1>
+                {this.renderTitle()}
               </div>
               <div>
-                <h2 className="subtitle">{this.props.page.description}</h2>
+                {this.renderSubtitle()}
               </div>
             </div>
           </div>
